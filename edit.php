@@ -9,12 +9,13 @@
             <th>
                 <?if(count($registry['images']) > 0):?>
                 <img src="http://<?=$_SERVER['SERVER_NAME'].'/'.$theme.'uploads/'.$registry['images'][0];?>" height="60"/>
+                <input type="hidden" name="img[]" value="<?=$registry['images'][0];?>"/>
                 <?endif;?>
             </th><td><input type="file" name="img[]"/></td><td><a onclick="addField(this);" class="btn btn-success">+ Add More</a></td>
         </tr>
         <?if(count($registry['images']) > 1): ?>
             <?php for($i=1;$i<count($registry['images']);$i++):?>
-              <tr><th><img src="http://<?=$_SERVER['SERVER_NAME'].'/'.$theme.'uploads/'.$registry['images'][$i];?>" height="60"/></th><td><input type="file" name="img[]"/></td><td><a onclick="deleteField(this);" class="btn btn-danger">Remove</a></td></tr>
+              <tr><th><img src="http://<?=$_SERVER['SERVER_NAME'].'/'.$theme.'uploads/'.$registry['images'][$i];?>" height="60"/><input type="hidden" name="img[]" value="<?=$registry['images'][$i];?>"/></th><td><input type="file" name="img[]"/></td><td><a onclick="deleteField(this);" class="btn btn-danger">Remove</a></td></tr>
             <?endfor;?>
         <?endif;?>
     </table>
